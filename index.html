@@ -1,24 +1,83 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Page des projets</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes projets - BTS SIO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor="bluesky">
-	<h1>Page de mes projets en BTS SIO</h1>
-	<br>
-	<br>
-	<a href="frame.html">Projet 3</a>
-	<br>
-	<br>
-	<a href="tp_administration.pdf">Projet 4</a>
-	<br>
-	<br>
-	<a href="inscrption.html">Projet 5 </a>
-	<br>
-	<br>
-	<a href="projet13.pdf">Projet 13 </a>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Mon<span>Portfolio.</span></div>
+            <a href="#projets" class="nav-link">Mes projets</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <span class="tag">💻 BTS SIO • Portfolio</span>
+
+            <h1>Bienvenue sur<br>
+                <span>mes projets</span>
+            </h1>
+
+            <p>
+                Découvrez les différents projets que j'ai réalisés
+                durant ma formation en BTS SIO.
+            </p>
+
+            <a href="#projets" class="btn">Découvrir mes projets ↓</a>
+        </section>
+
+        <section class="projects" id="projets">
+            <h2>Mes réalisations</h2>
+            <p class="subtitle">Voici les projets que j'ai réalisés.</p>
+
+            <div class="project-grid">
+
+                <a href="frame.html" class="project-card">
+                    <div class="project-number">01</div>
+                    <div class="project-icon">🌐</div>
+                    <h3>Projet 3</h3>
+                    <p>Découvrir mon projet web.</p>
+                    <span class="project-link">Voir le projet ↗</span>
+                </a>
+
+                <a href="tp_administration.pdf" target="_blank" class="project-card">
+                    <div class="project-number">02</div>
+                    <div class="project-icon">📄</div>
+                    <h3>Projet 4</h3>
+                    <p>Consulter mon travail d'administration.</p>
+                    <span class="project-link">Voir le document ↗</span>
+                </a>
+
+                <a href="inscrption.html" class="project-card">
+                    <div class="project-number">03</div>
+                    <div class="project-icon">📝</div>
+                    <h3>Projet 5</h3>
+                    <p>Découvrir mon projet d'inscription.</p>
+                    <span class="project-link">Voir le projet ↗</span>
+                </a>
+
+                <a href="projet13.pdf" target="_blank" class="project-card">
+                    <div class="project-number">04</div>
+                    <div class="project-icon">🚀</div>
+                    <h3>Projet 13</h3>
+                    <p>Consulter mon treizième projet.</p>
+                    <span class="project-link">Voir le document ↗</span>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 - Mon Portfolio BTS SIO | Réalisé avec passion 💙</p>
+    </footer>
 
 </body>
 </html>
