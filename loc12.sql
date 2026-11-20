@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 20 nov. 2026 à 07:45
+-- Généré le : ven. 20 nov. 2026 à 08:22
 -- Version du serveur : 8.0.39
 -- Version de PHP : 8.2.23
 
@@ -66,6 +66,31 @@ INSERT INTO `locations` (`num_location`, `date_location`, `id_client`, `immatric
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `reparations`
+--
+
+CREATE TABLE `reparations` (
+  `num_rep` int NOT NULL,
+  `date_rep` date NOT NULL,
+  `panne` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `lieu_rep` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `prix_rep` int NOT NULL,
+  `nombre_jour_rep` int NOT NULL,
+  `adresse_mecanicien` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `immatriculation` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `reparations`
+--
+
+INSERT INTO `reparations` (`num_rep`, `date_rep`, `panne`, `lieu_rep`, `prix_rep`, `nombre_jour_rep`, `adresse_mecanicien`, `immatriculation`) VALUES
+(45, '2026-11-24', 'batterie morte', 'paris', 200, 1, 'la tour eiffel', '200 TU 200'),
+(20, '2026-11-12', 'crevaison', 'evry', 100, 3, 'l\'agora', '300 TU 300');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `voitures`
 --
 
@@ -102,6 +127,12 @@ ALTER TABLE `locations`
   ADD KEY `id_client` (`id_client`);
 
 --
+-- Index pour la table `reparations`
+--
+ALTER TABLE `reparations`
+  ADD PRIMARY KEY (`immatriculation`);
+
+--
 -- Index pour la table `voitures`
 --
 ALTER TABLE `voitures`
@@ -115,8 +146,14 @@ ALTER TABLE `voitures`
 -- Contraintes pour la table `locations`
 --
 ALTER TABLE `locations`
-  ADD CONSTRAINT `locations_ibfk_1` FOREIGN KEY (`immatriculation`) REFERENCES `voitures` (`immatriculation`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `locations_ibfk_2` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `locations_ibfk_2` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `locations_ibfk_3` FOREIGN KEY (`immatriculation`) REFERENCES `voitures` (`immatriculation`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `voitures`
+--
+ALTER TABLE `voitures`
+  ADD CONSTRAINT `voitures_ibfk_1` FOREIGN KEY (`immatriculation`) REFERENCES `reparations` (`immatriculation`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
